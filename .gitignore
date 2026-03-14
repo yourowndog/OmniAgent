@@ -1,0 +1,5 @@
+# ... (previous gitignore content if any)
+.configs/
+auth_tokens.json
+agents/main/sessions/
+memory/

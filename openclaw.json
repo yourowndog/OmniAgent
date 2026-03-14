@@ -1,14 +1,31 @@
 {
+  "meta": {
+    "lastTouchedVersion": "2026.3.11",
+    "lastTouchedAt": "2026-03-13T23:22:42.252Z"
+  },
   "wizard": {
-    "lastRunAt": "2026-03-06T21:24:02.048Z",
-    "lastRunVersion": "2026.3.2",
-    "lastRunCommand": "onboard",
+    "lastRunAt": "2026-03-12T23:20:34.702Z",
+    "lastRunVersion": "2026.3.11",
+    "lastRunCommand": "doctor",
     "lastRunMode": "local"
+  },
+  "browser": {
+    "executablePath": "/data/data/com.termux/files/usr/bin/chromium-browser",
+    "headless": true,
+    "noSandbox": true
   },
   "auth": {
     "profiles": {
       "google:default": {
         "provider": "google",
+        "mode": "api_key"
+      },
+      "anthropic:default": {
+        "provider": "anthropic",
+        "mode": "token"
+      },
+      "openai:default": {
+        "provider": "openai",
         "mode": "api_key"
       }
     }
@@ -16,14 +33,59 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "google/gemini-3-flash-preview"
+        "primary": "google/gemini-3.1-pro-preview"
       },
       "models": {
-        "google/gemini-3-flash-preview": {}
+        "google/gemini-3-flash-preview": {
+          "alias": "gemini-flash"
+        },
+        "google/gemini-3.1-pro-preview": {
+          "alias": "gemini-pro"
+        }
       },
-      "workspace": "/home/openclaw/.openclaw/workspace",
+      "workspace": "/data/data/com.termux/files/home/.openclaw/workspace",
+      "memorySearch": {
+        "sources": [
+          "memory",
+          "sessions"
+        ],
+        "experimental": {
+          "sessionMemory": true
+        },
+        "provider": "gemini",
+        "remote": {
+          "apiKey": "AIzaSyDFSC22C197Mka4QkDo44oh-0Mr3fsSz_Y"
+        },
+        "model": "gemini-embedding-001",
+        "query": {
+          "hybrid": {
+            "enabled": true,
+            "mmr": {
+              "enabled": true
+            },
+            "temporalDecay": {
+              "enabled": true
+            }
+          }
+        },
+        "cache": {
+          "enabled": true
+        }
+      },
+      "contextPruning": {
+        "mode": "cache-ttl"
+      },
       "compaction": {
-        "mode": "safeguard"
+        "mode": "safeguard",
+        "reserveTokensFloor": 0,
+        "memoryFlush": {
+          "enabled": true,
+          "softThresholdTokens": 5000,
+          "prompt": "EXTRACT DURABLE MEMORIES. Identify and save: 1. Core user preferences and personality traits (e.g. ENTP, external processor). 2. Key project decisions and technical configurations (e.g. Android/Termux setup, NotebookLM integration). 3. Lessons learned or recurring technical blockers. 4. Important facts or entities mentioned that have long-term relevance. Format as high-signal bullet points. Avoid conversational filler or redundant details."
+        }
+      },
+      "heartbeat": {
+        "every": "1h"
       },
       "maxConcurrent": 4,
       "subagents": {
@@ -32,7 +94,14 @@
     }
   },
   "tools": {
-    "profile": "messaging"
+    "profile": "coding",
+    "web": {
+      "search": {
+        "enabled": true,
+        "provider": "brave",
+        "apiKey": "BSADcA60yIbYuzMQg0k3Pe81orV_wZu"
+      }
+    }
   },
   "messages": {
     "ackReactionScope": "group-mentions"
@@ -102,8 +171,57 @@
       }
     }
   },
-  "meta": {
-    "lastTouchedVersion": "2026.3.2",
-    "lastTouchedAt": "2026-03-06T21:24:02.080Z"
+  "plugins": {
+    "slots": {
+      "memory": "openclaw-mem0"
+    },
+    "entries": {
+      "memory-lancedb": {
+        "enabled": false,
+        "config": {
+          "embedding": {
+            "apiKey": "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",
+            "model": "text-embedding-3-small"
+          }
+        }
+      },
+      "memory-core": {
+        "enabled": false
+      },
+      "acpx": {
+        "enabled": true
+      },
+      "lobster": {
+        "enabled": true
+      },
+      "diffs": {
+        "enabled": true
+      },
+      "google-gemini-cli-auth": {
+        "enabled": true
+      },
+      "openclaw-mem0": {
+        "enabled": true,
+        "config": {
+          "apiKey": "m0-nnoxmUcNGviqKvQ5nAxqBu4F0BQNe3YV4xDsjVPX",
+          "userId": "sam"
+        }
+      }
+    },
+    "installs": {
+      "openclaw-mem0": {
+        "source": "npm",
+        "spec": "@mem0/openclaw-mem0",
+        "installPath": "/data/data/com.termux/files/home/.openclaw/extensions/openclaw-mem0",
+        "version": "0.3.0",
+        "resolvedName": "@mem0/openclaw-mem0",
+        "resolvedVersion": "0.3.0",
+        "resolvedSpec": "@mem0/openclaw-mem0@0.3.0",
+        "integrity": "sha512-DW42WTCJFyiJAxTned5kQfUxq3uFy9lBlVt++Cs+D14jr7GnNmFWxnMRw0nQzB/gw8fJGE/9L63oPa+67AJ+fw==",
+        "shasum": "52e7e2a5275bf4581688931d2543af807af7f5e4",
+        "resolvedAt": "2026-03-13T19:48:37.496Z",
+        "installedAt": "2026-03-13T19:49:11.084Z"
+      }
+    }
   }
 }
