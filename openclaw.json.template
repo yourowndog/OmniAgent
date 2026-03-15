@@ -54,7 +54,7 @@
         },
         "provider": "gemini",
         "remote": {
-          "apiKey": "AIzaSyDFSC22C197Mka4QkDo44oh-0Mr3fsSz_Y"
+          "apiKey": "REDACTED_GOOGLE_API_KEY"
         },
         "model": "gemini-embedding-001",
         "query": {
@@ -99,7 +99,7 @@
       "search": {
         "enabled": true,
         "provider": "brave",
-        "apiKey": "BSADcA60yIbYuzMQg0k3Pe81orV_wZu"
+        "apiKey": "REDACTED_BRAVE_API_KEY"
       }
     }
   },
@@ -180,7 +180,7 @@
         "enabled": false,
         "config": {
           "embedding": {
-            "apiKey": "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",
+            "apiKey": "REDACTED_OPENAI_API_KEY",
             "model": "text-embedding-3-small"
           }
         }
@@ -203,7 +203,7 @@
       "openclaw-mem0": {
         "enabled": true,
         "config": {
-          "apiKey": "m0-nnoxmUcNGviqKvQ5nAxqBu4F0BQNe3YV4xDsjVPX",
+          "apiKey": "REDACTED_MEM0_API_KEY",
           "userId": "sam"
         }
       }

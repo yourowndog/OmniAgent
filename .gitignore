@@ -1,5 +1,25 @@
-# ... (previous gitignore content if any)
+# Secrets & Auth
 .configs/
 auth_tokens.json
-agents/main/sessions/
+workspace/auth_tokens.json
+identity/
+*.key
+*.pem
+openclaw.json
+
+# Agent State (synced via Syncthing, not Git)
 memory/
+agents/*/sessions/
+logs/
+workspace/cookies*
+workspace/.openclaw/
+
+# Runtime
+node_modules/
+*.sqlite*
+*.bak*
+devices/
+update-check.json
+
+# Session logs
+*.jsonl
