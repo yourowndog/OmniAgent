@@ -44,3 +44,7 @@ Thumbs.db
 *.apk
 build/
 .stfolder/
+config.json
+workspace/models/
+workspace/wake-word-android/
+package-lock.json

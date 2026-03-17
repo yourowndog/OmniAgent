@@ -80,7 +80,8 @@ All configured in `~/.claude.json` and `~/.gemini/settings.json`:
 - `pinecone-mcp-server` — 9 tools, via npx
 - `sequential-thinking` — 1 tool, via node
 - `brave-search` — 2 tools
-- `jcodemunch` — via proot-distro (offline in mcporter, works in Claude Code)
+- `jcodemunch` — **Restored via proot.** Use `/root/home/` prefix for all paths (e.g., `/root/home/projects/OmniAgent`).
+- `jdocmunch` — **Added via proot.** Documentation equivalent of jCodeMunch. Same path mapping applies.
 
 ---
 
