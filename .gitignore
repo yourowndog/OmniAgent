@@ -1,11 +1,20 @@
-# Secrets & Auth
+# Secrets & Auth — NEVER commit these
 .configs/
 auth_tokens.json
 workspace/auth_tokens.json
 identity/
 *.key
 *.pem
+*.p12
+*.pfx
 openclaw.json
+device.json
+device-auth.json
+paired.json
+**/tokens.json
+**/secrets.json
+**/.env
+**/.env.*
 
 # Agent State (synced via Syncthing, not Git)
 memory/
@@ -23,3 +32,15 @@ update-check.json
 
 # Session logs
 *.jsonl
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Build artifacts
+*.apk
+build/
+.stfolder/
